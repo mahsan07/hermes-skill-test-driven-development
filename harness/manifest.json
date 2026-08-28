@@ -1,0 +1,85 @@
+{
+  "protocol_version": "0.1",
+  "skill": {
+    "id": "hermes-skill-test-driven-development",
+    "display_name": "Test Driven Development",
+    "description": "Implement changes through RED-GREEN-REFACTOR with focused regression coverage."
+  },
+  "task_profile": {
+    "category": "engineering",
+    "architecture": "loop",
+    "artifact": "code",
+    "inputs": [
+      "Behavior requirement",
+      "Failing test"
+    ],
+    "outputs": [
+      "Refactored design",
+      "RED: 1 failed",
+      "GREEN: 128 passed",
+      "Refactor: clean",
+      "Regression: covered"
+    ]
+  },
+  "modules": {
+    "memory": {
+      "strategy": "experiment_and_feedback_ledger",
+      "responsibility": "Retain behavior requirement plus decisions, observations, and verification evidence needed to resume safely."
+    },
+    "planning": {
+      "strategy": "feedback_driven_iteration",
+      "responsibility": "Transform failing test into the ordered, bounded stages defined by this skill."
+    },
+    "action": {
+      "strategy": "inspect_change_test_handoff",
+      "responsibility": "Advance the workflow through minimal implementation while preserving stop conditions and user authority."
+    },
+    "capability": {
+      "strategy": "task_conditioned_minimum_capability_set",
+      "responsibility": "Expose only repository, runtime, and verification capabilities required by the bounded engineering task."
+    }
+  },
+  "execution": {
+    "stages": [
+      "Translate behavior into a focused test",
+      "Run it and confirm the expected failure",
+      "Implement the smallest passing change",
+      "Run focused and regression suites",
+      "Refactor without changing behavior",
+      "Record RED GREEN REFACTOR evidence"
+    ],
+    "gates": [
+      "scope_and_authority_confirmed",
+      "capability_and_dependency_preflight",
+      "consequential_action_previewed_when_applicable",
+      "output_reopened_and_verified"
+    ]
+  },
+  "verification": {
+    "evidence": [
+      "RED: 1 failed",
+      "GREEN: 128 passed",
+      "Refactor: clean",
+      "Regression: covered"
+    ],
+    "metrics": [
+      "task_success",
+      "verification_pass_rate",
+      "tool_error_rate",
+      "repair_count",
+      "latency_ms",
+      "estimated_cost_usd"
+    ]
+  },
+  "failure_policy": {
+    "max_repairs": 2,
+    "schema_error": "repair_then_stop",
+    "permission_error": "stop_without_retry",
+    "verification_failure": "report_incomplete"
+  },
+  "maturity": {
+    "level": "executable_contract",
+    "runtime_scope": "validation_and_dry_run_planning",
+    "claim_boundary": "This repository validates and plans the harness contract; it does not claim live service execution or benchmark gains without a connected adapter and measured evidence."
+  }
+}

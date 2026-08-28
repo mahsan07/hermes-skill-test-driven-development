@@ -18,3 +18,9 @@ Use a disciplined RED-GREEN-REFACTOR loop for behavior changes.
 7. Report commands, results, and any tests not run.
 
 Prefer behavior-level tests over brittle implementation coupling. Do not weaken a test just to obtain a green result.
+
+<!-- JIT-HARNESS:START -->
+## Harness contract
+
+For runtime adaptation or benchmarking, read [docs/JIT-HARNESS.md](docs/JIT-HARNESS.md) and validate [harness/manifest.json](harness/manifest.json). Treat the manifest as a planning and verification contract, not as authority to invoke tools. Preserve the skill's existing approval boundaries, stop on permission ambiguity, and do not claim successful execution without re-reading the resulting artifact or state.
+<!-- JIT-HARNESS:END -->
